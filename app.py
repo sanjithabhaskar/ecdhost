@@ -1,8 +1,8 @@
 import sqlite3
 from flask import Flask, render_template, request, redirect, url_for, jsonify, send_file
-from flask_frozen import Freezer 
+# from flask_frozen import Freezer 
 app = Flask(__name__)
-freezer = Freezer(app)
+# freezer = Freezer(app)
 # Function to fetch data from the database
 def get_dopants():
     conn = sqlite3.connect('perov21.db')
@@ -197,5 +197,5 @@ def material_specific(materiall):
     return render_template('material_specific.html', dopants=dopants, model_options=model_options)
 
 if __name__ == '__main__':
-    # app.run(debug=False,host="0.0.0.0")
-    freezer.freeze()
+    app.run(debug=False,host="0.0.0.0")
+    # freezer.freeze()
